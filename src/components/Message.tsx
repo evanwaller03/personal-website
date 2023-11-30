@@ -22,8 +22,9 @@ function Message() {
         justifyContent: "center", // Horizontal centering
         alignItems: "center",     // Vertical centering
         height: "25%" , 
-        width: "20%",       // Set the container height to 100% of the viewport height
+        width: "fit-content",       // Set the container height to 100% of the viewport height
         flexDirection: "column",
+        padding:"8px",
       }}
       >
       
