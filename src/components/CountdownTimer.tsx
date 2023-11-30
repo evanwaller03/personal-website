@@ -22,7 +22,7 @@ function CountdownTimer() {
   function calculateTimeRemaining() {
     // Calculate the time remaining from the user's login time to December 2nd at 12:00 AM
     const now = new Date();
-    const december2nd = new Date(now.getFullYear(), 11, 9, 0, 0, 0, 0); // December is 11 (0-indexed)
+    const december2nd = new Date(now.getFullYear(), 11, 16, 0, 0, 0, 0); // December is 11 (0-indexed)
 
     const timeDifference = december2nd.getTime() - now.getTime();
 
