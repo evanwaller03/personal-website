@@ -5,10 +5,11 @@ function CountdownTimer() {
   const largeText: React.CSSProperties = {
     fontSize:"3em",  // Stack elements vertically
     paddingRight:"5px",
+    color:"#ffffff",
   };
   const smallText: React.CSSProperties = {
     fontSize:"1em",  // Stack elements vertically
-
+    color:"#ffffff",
   };
 
   useEffect(() => {
