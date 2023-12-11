@@ -15,7 +15,7 @@ const ChatInterface = () => {
     const data = { prompt: question };
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/ask', {
+      const response = await fetch('http://34.28.122.14:8000/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const ChatInterface = () => {
 
   const testCORS = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/test-cors', {
+      const response = await fetch('http://34.28.122.14:8000/test-cors', {
         method: 'GET'
       });
   
