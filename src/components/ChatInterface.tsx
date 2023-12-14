@@ -13,9 +13,9 @@ const ChatInterface = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const data = { prompt: question };
-    
+
     try {
-      const response = await fetch('https://api.evanwaller.com/ask', {
+      const response = await fetch('http://127.0.0.1:8000/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const ChatInterface = () => {
 
   const testCORS = async () => {
     try {
-      const response = await fetch('https://api.evanwaller.com/test-cors', {
+      const response = await fetch('http://127.0.0.1:8000/test-cors', {
         method: 'GET'
       });
   
