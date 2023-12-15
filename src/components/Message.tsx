@@ -39,7 +39,7 @@ function Message({ onSecretClick }: any) {
       }}
       >
         <CountdownTimer/>
-        <p style={{fontSize: ".9em", fontStyle: "italic", }}>Coming 12/2/23</p></div>
+        <p style={{fontSize: ".9em", fontStyle: "italic", }}>Coming 1/1/24</p></div>
         <button style={secretButtonStyle} onClick={onSecretClick} aria-label="Secret button to chatbot" />
     
     </div>
