@@ -15,7 +15,7 @@ const ChatInterface = () => {
     const data = { prompt: question };
 
     try {
-      const response = await fetch('http://34.170.125.217:8000/ask', {
+      const response = await fetch('https://api.evanwaller.com/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const ChatInterface = () => {
 
   const testCORS = async () => {
     try {
-      const response = await fetch('http://34.170.125.217:8000/test-cors', {
+      const response = await fetch('https://api.evanwaller.com/test-cors', {
         method: 'GET'
       });
   
