@@ -1,5 +1,6 @@
 import React from 'react';
 import ChatInterface from '../components/ChatInterface';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
 const ChatBot = () => {
     const pageStyle: React.CSSProperties = {
@@ -10,9 +11,14 @@ const ChatBot = () => {
         flexDirection: "column",  // Stack elements vertically
         width: "100%",
       };
+      let navigate = useNavigate();
+    const handleSecretClick = () => {
+        navigate('/youtube');
+    };
 
     return (
         <div style={pageStyle}>
+            <button onClick={handleSecretClick}>Back</button>
             <h1>Evan GPT Waller</h1>
             <ChatInterface/>
         </div>

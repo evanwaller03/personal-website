@@ -7,9 +7,12 @@ import BestLogo from '/best-logo.png';
 
 function Home() {
     let navigate = useNavigate();
-  const handleSecretClick = () => {
-    navigate('/chatbot');
-  };
+    // const handleSecretClick = () => {
+    //     navigate('/chatbot');
+    // };
+    const handleSecretClick = () => {
+        navigate('/youtube');
+    };
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {

@@ -1,0 +1,35 @@
+.base-div {
+    background-color: #F0F0F0; /* Similar to ChatGPT window color */
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.navbar-div {
+    height: 80px; /* Fixed height of 40px */
+    width: 100%; /* Takes up full width of its parent div */
+    background-color: #333; /* Dark background for contrast, you can change it as per your preference */
+    color: white; /* Text color, change if needed */
+    display: flex; /* Enables flexible box layout */
+    align-items: center; /* Centers items vertically in the container */
+    padding: 0 10px; /* Adds some padding on the sides */
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Adjust height based on remaining space */
+    width: 100vw;
+  }
+  
+  .centered-button {
+    padding: 10px 20px;
+    font-size: 32px;
+    cursor: pointer;
+    /* Add more styles as per your design */
+  }
+  
+  
