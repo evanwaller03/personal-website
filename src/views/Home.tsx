@@ -8,6 +8,20 @@ const Home = () => {
   const [mouseX, setMouseX] = useState(0);
   const [beamPosition, setBeamPosition] = useState({ x: 0, y: 0, length: 0, angle: 0 });
   const [showBeam, setShowBeam] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobile = windowWidth < 600;
+    useEffect(() => {
+      // Function to update state
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+  
+      // Set up event listener
+      window.addEventListener('resize', handleResize);
+  
+      // Clean up event listener
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
   const handleMouseClick = (event: any) => {
     const spaceshipBottom = window.innerHeight - 160; // Y-coordinate of the spaceship bottom
@@ -50,12 +64,13 @@ const Home = () => {
 
   const spaceshipStyle: React.CSSProperties = {
     position: 'absolute',
-    bottom: '10px',
+    bottom: isMobile ? '90px' : '10px', // Adjust bottom position for mobile
     left: `${mouseX}px`,
     transform: 'translateX(-50%)',
     pointerEvents: 'none',
-    height: '150px',
+    height: isMobile ? '90px' : '150px', // Smaller spaceship for mobile
   };
+  
 
   const beamCommonStyle: React.CSSProperties = {
     position: 'absolute',
@@ -70,14 +85,14 @@ const Home = () => {
     ...beamCommonStyle,
     backgroundColor: '#39FF14', // Neon green color
     width: '4px',
-    left: `${beamPosition.x - 3}px`, // Offset by half of the width
+    left: `${beamPosition.x-2}px`, // Offset by half of the width
   };
   
   const whiteBeamStyle: React.CSSProperties = {
     ...beamCommonStyle,
     backgroundColor: 'white',
     width: '8px',
-    left: `${beamPosition.x - 5}px`, // Offset by half of the width
+    left: `${beamPosition.x - 4}px`, // Offset by half of the width
   };
   
   
@@ -107,7 +122,7 @@ const Home = () => {
   };
 
   return (
-    <div className='under-div' style={{ position: 'relative' }}>
+    <div className='under-div' style={{ position: 'relative'}}>
       <div className='navbar-div'>
         <NavBar />
       </div>
@@ -116,7 +131,7 @@ const Home = () => {
         <button className="glow-button" onClick={handleSecretClick}>WallerGPT</button>
       </div>
       <div style={whiteBeamStyle}></div> {/* Outermost white beam */}
-    <div style={neonGreenBeamStyle}></div> {/* Middle neon green beam */}
+      <div style={neonGreenBeamStyle}></div> {/* Middle neon green beam */}
 
       <img src="/pngegg.png" style={spaceshipStyle} alt="Spaceship" />
     </div>
