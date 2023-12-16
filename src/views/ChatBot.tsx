@@ -13,7 +13,7 @@ const ChatBot = () => {
       };
       let navigate = useNavigate();
     const handleSecretClick = () => {
-        navigate('/youtube');
+        navigate('/home');
     };
 
     return (

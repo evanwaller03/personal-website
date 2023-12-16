@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../public/background.png';
+import Logo from '../../public/w-logo-square.png';
 
 const NavBar = () => {
 
@@ -13,7 +13,7 @@ const NavBar = () => {
         backgroundPosition: 'center',
     };
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 30px 10px 10px', width: "100vw" }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 25px 10px 25px', width: "100vw" }}>
       <div style={circleStyle}></div>
       <h2>Wally's World</h2>
       <button>Menu</button>

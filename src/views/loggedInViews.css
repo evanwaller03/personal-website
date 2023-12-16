@@ -14,7 +14,7 @@
     color: white; /* Text color, change if needed */
     display: flex; /* Enables flexible box layout */
     align-items: center; /* Centers items vertically in the container */
-    padding: 0 10px; /* Adds some padding on the sides */
+    padding: 0; /* Adds some padding on the sides */
 }
 
 .centered-content {
@@ -25,11 +25,53 @@
     width: 100vw;
   }
   
-  .centered-button {
-    padding: 10px 20px;
-    font-size: 32px;
-    cursor: pointer;
-    /* Add more styles as per your design */
+  .glow-button {
+    background-color: #202124; /* Solid grey background similar to GPT UI */
+    color: white; /* White text color */
+    border: none; /* No border for a solid button */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 32px; /* Font size */
+    cursor: pointer; /* Cursor indicates a clickable button */
+    outline: none; /* Removes the default focus outline */
+    position: relative; /* Needed for absolute positioning of pseudo-elements */
+    transition: all 0.3s ease; /* Smooth transition for the glow effect */
+    box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.75); /* More intense white shadow */
+    border-radius: 15px; /* Optional: if you want rounded corners */
+    overflow: hidden; /* Ensures the pseudo-element glow doesn't overflow */
+  }
+  
+  /* Normal state intense glow */
+  .glow-button::before {
+    content: '';
+    position: absolute;
+    top: -10px; right: -10px; bottom: -10px; left: -10px; /* Larger area for glow */
+    z-index: -1;
+    border-radius: inherit; /* Inherit the border-radius of the button */
+    transition: all 0.3s ease;
+    background: white; /* Starting color for the glow */
+    box-shadow: 0 0 40px 20px rgba(255, 255, 255, 1); /* More intense white shadow */
+    opacity: 1; /* Show the pseudo-element */
+  }
+  
+  /* Hover state even more dramatic glow */
+  .glow-button:hover::before {
+    background: #ff1493; /* Base color for the glow */
+    box-shadow: 1000px #ff1493; /* Extremely intense neon pink glow */
+    opacity: 1; /* Show the pseudo-element on hover */
+  }
+  
+  /* Hover state for the button */
+  .glow-button:hover {
+    color: white; /* Keep text color white on hover */
+    background-color: #202124; /* Keep the background color the same on hover */
+    box-shadow: 0 0 40px 20px #ff1493; /* Intense neon pink outer glow */
+  }
+ 
+  .under-div {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Contains the blurred background */
   }
   
   
