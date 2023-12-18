@@ -1,28 +1,28 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
 import ChatInterface from '../components/ChatInterface';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
 const ChatBot = () => {
     const pageStyle: React.CSSProperties = {
         display: "flex",
-        justifyContent: "center", // Horizontal centering
-        alignItems: "center",     // Vertical centering
-        height: "100%",          // Set the container height to 100% of the viewport height
-        flexDirection: "column",  // Stack elements vertically
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        height: "100%", // This makes the inner container take up 100% of the parent's height
         width: "100%",
-      };
-      let navigate = useNavigate();
-    const handleSecretClick = () => {
-        navigate('/home');
+        paddingTop: '25px'
     };
 
     return (
-        <div style={pageStyle}>
-            <button onClick={handleSecretClick}>Back</button>
-            <h1>Evan GPT Waller</h1>
-            <ChatInterface/>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', backgroundColor: '#343541', overflow: 'hidden' }}>
+            <div className='navbar-div'>
+                <NavBar title='WallerGPT'/>
+            </div>
+            <div style={pageStyle}>
+                <ChatInterface/>
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default ChatBot;
