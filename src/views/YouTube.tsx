@@ -51,9 +51,9 @@ const YouTube = () => {
             const response = await axios.get<YouTubeApiResponse>(`https://www.googleapis.com/youtube/v3/search`, {
                 params: {
                     part: 'snippet',
-                    channelId: import.meta.env.VITE_YOUTUBE_CHANNEL_ID,
+                    channelId: process.env.VITE_YOUTUBE_CHANNEL_ID,
                     maxResults: 10,
-                    key: import.meta.env.VITE_API_KEY,
+                    key: process.env.VITE_API_KEY,
                 }
             });
 
