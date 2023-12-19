@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 import './loggedInViews.css';
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const GalaxyInvaders = () => {
   const [videos, setVideos] = useState([]);
   const [mouseX, setMouseX] = useState(0);
   const [beamPosition, setBeamPosition] = useState({ x: 0, y: 0, length: 0, angle: 0 });
@@ -65,7 +65,7 @@ const Home = () => {
 
     // Delay the navigation
     setTimeout(() => {
-      navigate('/chatbot');
+      navigate('/wallergpt');
     }, 100);
   };
 
@@ -157,4 +157,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default GalaxyInvaders;

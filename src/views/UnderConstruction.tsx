@@ -11,7 +11,7 @@ function UnderConstruction() {
     //     navigate('/chatbot');
     // };
     const handleSecretClick = () => {
-        navigate('/home');
+        navigate('/welcome');
     };
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

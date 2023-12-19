@@ -21,6 +21,7 @@ const NavBar = ({ title } : any) => {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
+    cursor: "pointer"
   };
 
   const dropDownMenu: CSSProperties = {
@@ -56,17 +57,26 @@ const NavBar = ({ title } : any) => {
     setIsDropdownOpen(false); // Close the dropdown after navigation
   };
 
+  const navigateHome = () => {
+    navigate("/welcome");
+  };
+
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', height: '60px', alignItems: 'center', padding: '10px 10px', width: "100vw", backgroundColor: 'rgba(0,0,0,1)' }}>
-      <div style={circleStyle}></div>
+      <div style={circleStyle} onClick={navigateHome}></div>
       <h2>{title}</h2>
       <div style={dropDownMenu} onClick={toggleDropdown}>
         <HiMenu style={{fontSize: '30'}}/>
         <div style={dropdownContent}>
           {/* Add navigation items here */}
-          <div onClick={() => handleNavigation('/home')}>Home</div>
+          <div onClick={() => handleNavigation('/welcome')}>Welcome</div>
+          <div onClick={() => handleNavigation('/resume')}>Resume</div>
+          <div onClick={() => handleNavigation('/mycode')}>My Code</div>
           <div onClick={() => handleNavigation('/youtube')}>YouTube</div>
-          <div onClick={() => handleNavigation('/chatbot')}>WallerGPT</div>
+          <div onClick={() => handleNavigation('/galaxyinvaders')}>Galaxy Invaders</div>
+          <div onClick={() => handleNavigation('/wallergpt')}>WallerGPT</div>
+          <div onClick={() => handleNavigation('/quotes')}>Quotes</div>
+          <div onClick={() => handleNavigation('/interests')}>Interests</div>
           {/* Add more navigation items as needed */}
         </div>
       </div>
