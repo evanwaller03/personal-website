@@ -46,13 +46,22 @@ const YouTube = () => {
 
     const fetchVideos = async () => {
         try {
-            const response = await axios.get('https://api.evanwaller.com/youtube');
-            // http://127.0.0.1:8000/youtube
-            setVideos(response.data);
+            const response = await axios.get<YouTubeApiResponse>('https://api.evanwaller.com/youtube');
+            // Replace &amp; with & in each video title
+            const processedVideos = response.data.items.map((video: YouTubeVideo) => ({
+                ...video,
+                snippet: {
+                    ...video.snippet,
+                    title: video.snippet.title.replace(/&amp;/g, '&')
+                }
+            }));
+            setVideos(processedVideos);
         } catch (error) {
             console.error('Error fetching videos', error);
         }
     };
+    
+    
 
     return (
         <div className='under-div' style={{ position: 'relative' }}>
