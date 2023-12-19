@@ -45,19 +45,10 @@ const YouTube = () => {
     }, []);
 
     const fetchVideos = async () => {
-        
-
         try {
-            const response = await axios.get<YouTubeApiResponse>(`https://www.googleapis.com/youtube/v3/search`, {
-                params: {
-                    part: 'snippet',
-                    channelId: process.env.VITE_YOUTUBE_CHANNEL_ID,
-                    maxResults: 10,
-                    key: process.env.VITE_API_KEY,
-                }
-            });
-
-            setVideos(response.data.items);
+            const response = await axios.get('https://api.evanwaller.com/youtube');
+            // http://127.0.0.1:8000/youtube
+            setVideos(response.data);
         } catch (error) {
             console.error('Error fetching videos', error);
         }
