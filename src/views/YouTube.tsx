@@ -53,7 +53,7 @@ const YouTube = () => {
                     part: 'snippet',
                     channelId: import.meta.env.VITE_YOUTUBE_CHANNEL_ID,
                     maxResults: 10,
-                    key: import.meta.env.VITE_YOUTUBE_API_KEY,
+                    key: import.meta.env.VITE_API_KEY,
                 }
             });
 
