@@ -1,5 +1,10 @@
+/* src/index.css or src/App.css */
+
+@import './fonts/fonts.css';
+
+
 :root {
-  font-family:  Arial, sans-serif;
+  font-family: 'Comfortaa', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

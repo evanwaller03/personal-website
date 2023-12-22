@@ -26,7 +26,7 @@ const GalaxyInvaders = () => {
     const handleMouseClick = (event: any) => {
       const spaceshipBottom = window.innerHeight - (isMobile ? 90 : 160); // Adjust bottom position for mobile
       const spaceshipCenterX = isMobile ? window.innerWidth / 2 : mouseX; // Center X-coordinate of the spaceship
-      const dx = event.clientX - spaceshipCenterX; // Horizontal difference
+      const dx = spaceshipCenterX - event.clientX ; // Horizontal difference
       const dy = spaceshipBottom - event.clientY; // Vertical difference
       const length = Math.sqrt(dx * dx + dy * dy); // Length of the beam
       const angle = Math.atan2(dy, dx) - Math.PI / 2; // Angle of the beam, rotated 90 degrees counter-clockwise
@@ -142,7 +142,7 @@ const GalaxyInvaders = () => {
   return (
     <div className='under-div' style={{ position: 'relative'}}>
       <div className='navbar-div'>
-        <NavBar title="Wally's World"/>
+        <NavBar title="Galaxy Invaders"/>
       </div>
       <div style={backgroundImageStyle}></div>
       <div style={contentStyle}>

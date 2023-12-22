@@ -1,0 +1,8 @@
+/* src/fonts/fonts.css */
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('./Comfortaa-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 800; /* Define the range of weights you have for the font */
+  }
+  

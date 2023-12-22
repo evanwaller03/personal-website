@@ -4,7 +4,10 @@ import NavBar from '../components/NavBar';
 
 interface YouTubeVideo {
     id: {
-        videoId: string;
+        kind: string;
+        videoId?: string;
+        channelId?: string;
+        playlistId?: string;
     };
     snippet: {
         title: string;
@@ -25,12 +28,14 @@ interface YouTubeApiResponse {
 
 const YouTube = () => {
     const [videos, setVideos] = useState<YouTubeVideo[]>([]);
-    const [containerHeight, setContainerHeight] = useState(window.innerHeight - 60);
-
+    const [containerHeight, setContainerHeight] = useState(window.innerHeight - 80);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const isMobile = windowWidth < 600;
 
     useEffect(() => {
         const handleResize = () => {
-            setContainerHeight(window.innerHeight - 60);
+            setContainerHeight(window.innerHeight - 80);
+            setWindowWidth(window.innerWidth);
         };
 
         window.addEventListener('resize', handleResize);
@@ -47,41 +52,80 @@ const YouTube = () => {
     const fetchVideos = async () => {
         try {
             const response = await axios.get('https://api.evanwaller.com/youtube');
-            // http://127.0.0.1:8000/youtube
-            setVideos(response.data);
+            // Assuming response.data is an array as shown in your API response example
+            const videoItems = response.data.filter((item: YouTubeVideo) => item.id.kind === "youtube#video");
+            setVideos(videoItems);
         } catch (error) {
             console.error('Error fetching videos', error);
         }
     };
+    
+
+    const truncateTitle = (description: any) => {
+        const maxChar = isMobile ? 50 : 75; // Set your character limit
+        return description.length > maxChar ? description.substring(0, maxChar) + '...' : description;
+    };
+
 
     return (
-        <div className='under-div' style={{ position: 'relative' }}>
-            <div className='navbar-div'>
-                <NavBar title="Anding Analytics" />
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+            <div className='navbar-div'> {/*This is 80px*/}
+                <NavBar title="Anding Analytics" /> 
             </div>
             <div style={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
-                justifyContent: 'flex-start', 
-                alignItems: 'flex-start', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
                 width: '100%',
                 maxHeight: `${containerHeight}px`,
-                overflowY: 'scroll' // Enable vertical scrolling
+                backgroundColor: '#343541',
             }}>
-                {videos.map(video => (
-                    <div style={{ 
-                        display: 'flex', 
-                        flexDirection: 'row', 
-                        justifyContent: 'flex-start', 
-                        alignItems: 'center', 
-                        margin: '15px 15%', 
-                        width: '70%' 
-                    }} key={video.id.videoId}>
-                        <img src={video.snippet.thumbnails.default.url} alt={video.snippet.title} />
-                        <h3 style={{ marginLeft: '15px' }}>{video.snippet.title}</h3>
-                        {/* Additional video details and analytics can be added here */}
-                    </div>
-                ))}
+                <div style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    justifyContent: 'flex-start', 
+                    alignItems: 'center', 
+                    width: isMobile ? '90%' : '50%',
+                    maxHeight: `${containerHeight}px`,
+                    overflowY: 'scroll',
+                }}>
+                    {videos.map((video, index) => (
+                        <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer" 
+                           style={{ 
+                               textDecoration: 'none', 
+                               color: 'inherit', 
+                               width: '90%', 
+                               marginBottom: index === videos.length - 1 ? '0' : '20px' // Add margin to all but the last element
+                           }} 
+                           key={video.id.videoId}>
+                            <div style={{ 
+                                display: 'flex', 
+                                flexDirection: 'row', 
+                                justifyContent: 'flex-start', 
+                                alignItems: 'center',
+                                width: '100%', 
+                                border: '1px solid transparent',
+                                borderRadius: '10px',
+                                transition: 'all 0.3s ease-in-out',
+                                boxShadow: 'none'
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.border = '1px solid white';
+                                e.currentTarget.style.boxShadow = '0 0 10px white';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.border = '1px solid transparent';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}>
+                                <img style={{height: '100px', marginLeft: '10px'}} src={video.snippet.thumbnails.default.url} alt={video.snippet.title} />
+                                <div style={{ marginLeft: '15px' }}>
+                                    {isMobile ? <h4>{truncateTitle(video.snippet.title)}</h4> : <h3>{truncateTitle(video.snippet.title)}</h3>}
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
             </div>
         </div>
     );

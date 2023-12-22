@@ -32,11 +32,11 @@ const NavBar = ({ title } : any) => {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center ',
-    backgroundColor: '#343541',
+    backgroundColor: '#606178',
     margin: '10px 10px 10px 10px',
     borderRadius: '5px',
     cursor: 'pointer',
-    border: '',
+    
   };
 
   const dropdownContent: CSSProperties = {
@@ -62,10 +62,29 @@ const NavBar = ({ title } : any) => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', height: '60px', alignItems: 'center', padding: '10px 10px', width: "100vw", backgroundColor: 'rgba(0,0,0,1)' }}>
-      <div style={circleStyle} onClick={navigateHome}></div>
+    <div style={{ display: 'flex', justifyContent: 'space-between', height: '60px', alignItems: 'center', padding: '10px 10px', width: "100vw", backgroundColor: '#343541' }}>
+      <div style={circleStyle}
+          onClick={navigateHome}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.border = '2px solid white';
+            e.currentTarget.style.boxShadow = '0 0 10px white';
+        }}
+        onMouseLeave={(e) => {
+            e.currentTarget.style.border = '2px solid #272831';
+            e.currentTarget.style.boxShadow = 'none';
+        }}
+          />
       <h2>{title}</h2>
-      <div style={dropDownMenu} onClick={toggleDropdown}>
+      <div style={dropDownMenu}
+          onClick={toggleDropdown}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.border = '2px solid white';
+            e.currentTarget.style.boxShadow = '0 0 10px white';
+        }}
+        onMouseLeave={(e) => {
+            e.currentTarget.style.border = '2px solid #272831';
+            e.currentTarget.style.boxShadow = 'none';
+        }}>
         <HiMenu style={{fontSize: '30'}}/>
         <div style={dropdownContent}>
           {/* Add navigation items here */}
@@ -75,7 +94,7 @@ const NavBar = ({ title } : any) => {
           <div onClick={() => handleNavigation('/youtube')}>YouTube</div>
           <div onClick={() => handleNavigation('/galaxyinvaders')}>Galaxy Invaders</div>
           <div onClick={() => handleNavigation('/wallergpt')}>WallerGPT</div>
-          <div onClick={() => handleNavigation('/quotes')}>Quotes</div>
+          {/* <div onClick={() => handleNavigation('/quotes')}>Quotes</div> */}
           <div onClick={() => handleNavigation('/interests')}>Interests</div>
           {/* Add more navigation items as needed */}
         </div>
