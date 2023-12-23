@@ -28,7 +28,7 @@ const Welcome = () => {
         justifyContent: "flex-start",
         alignItems: "center", // Changed to center
         height: "fit-content",
-        width: isMobile ? "90%" : "65%",
+        width: isMobile ? "90%" : "50%",
         paddingTop: '25px',
         color: '#FFFFFF', // Assuming white text for readability
         textAlign: 'center',
@@ -54,15 +54,15 @@ const Welcome = () => {
                 <h1 style={titleStyle}>Welcome to Wally's World</h1>
                 <div style={pageStyle}>
                     
-                    <p>Welcome! Explore my blend of coding projects and personal interests. If you have any questions, feel free to ask <Link style={{ fontWeight: 'bold', fontSize: '1.2em', textDecoration: 'underline', display: 'inline'}} to="/wallergpt"> WallerGPT: my openAI fine-tuned chatbot</Link>. Happy exploring!</p>
+                    <p>Welcome! Explore my blend of coding projects and personal interests. If you have any questions, feel free to ask <Link className='hover-underline' style={{ fontWeight: 'bold', fontSize: '1.2em', textDecoration: isMobile ? 'underline': '', display: 'inline'}} to="/wallergpt"> WallerGPT: my openAI fine-tuned chatbot</Link>. Happy exploring!</p>
                     
-                    <Link className='hover-underline' style={{marginTop: '50px'}}to="/youtube">🚀 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em'}}>YouTube Channel - Anding Analytics:</strong> My YouTube Channel</Link>
-                    <Link className='hover-underline' style={{marginTop: '15px'}} to="/galaxyinvaders">🕹️ <strong style={{fontSize: isMobile ? '1.1em' : '1.4em'}}>Galaxy Invaders:</strong> A Tribute To My First Python Creation</Link>
-                    <Link className='hover-underline' style={{marginTop: '15px'}} to="/resume">📄 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em'}}>Professional Resume:</strong> Education & Professional Work Experience</Link>
-                    <Link className='hover-underline' style={{marginTop: '15px', marginBottom: '15px'}} to="/interests">🌌 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em'}}>Interests:</strong> My Hobbies & Interests</Link>
-                    <Link className='hover-underline' style={{marginBottom: '50px'}} to="/mycode">💻 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em'}}>My Code:</strong> What I Have Built</Link>
+                    <Link className='hover-underline' style={{marginTop: '50px'}}to="/youtube">🚀 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>YouTube Channel - Anding Analytics:</strong> My YouTube Channel</Link>
+                    <Link className='hover-underline' style={{marginTop: '15px'}} to="/galaxyinvaders">🕹️ <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>Galaxy Invaders:</strong> A Tribute To My First Python Creation</Link>
+                    <Link className='hover-underline' style={{marginTop: '15px'}} to="/resume">📄 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>Resume:</strong> Education & Professional Work Experience</Link>
+                    <Link className='hover-underline' style={{marginTop: '15px', marginBottom: '15px'}} to="/interests">🌌 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>Interests:</strong> My Hobbies & Interests</Link>
+                    <Link className='hover-underline' style={{marginBottom: '50px'}} to="/mycode">💻 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>My Code:</strong> What I Have Built</Link>
                     
-                    <p>Disclaimer: I am still learning. Contact me if you have any cool ideas or would like to report a bug. Email: evanwaller03@gmail.com</p>
+                    <p style={{fontSize:'13px'}}>Disclaimer: I am still learning. Contact me if you have any cool ideas or would like to report a bug. Email: evanwaller03@gmail.com</p>
                 </div>
             </div>
         </div>

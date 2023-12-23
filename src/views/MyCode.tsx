@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 
-type Repository = {
+type GitHubRepo = {
     id: number;
     name: string;
     html_url: string;
     description: string;
+    language: string;
+    languages_url: string; // URL to fetch languages
 };
 
+
+
 const MyCode = () => {
-    const [repos, setRepos] = useState<Repository[]>([]);
+    const [repos, setRepos] = useState<GitHubRepo[]>([]);
     const [containerHeight, setContainerHeight] = useState(window.innerHeight - 80);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const isMobile = windowWidth < 600;
@@ -32,9 +36,17 @@ const MyCode = () => {
         window.addEventListener('resize', handleResize);
         // Replace 'your-username' with your actual GitHub username
         fetch('https://api.github.com/users/evanwaller03/repos')
-            .then(response => response.json())
-            .then(data => setRepos(data as Repository[])) // Cast the response to Repository[]
-            .catch(error => console.error(error));
+        .then(response => response.json())
+        .then((data: GitHubRepo[]) => Promise.all(data.map(repo => 
+            fetch(repo.languages_url)
+                .then(res => res.json())
+                .then(languages => ({
+                    ...repo,
+                    languages: Object.keys(languages) // Get all language names
+                }))
+        )))
+        .then(reposWithLanguages => setRepos(reposWithLanguages as GitHubRepo[]))
+        .catch(error => console.error(error));
 
         return () => {
             window.removeEventListener('resize', handleResize);
@@ -91,6 +103,9 @@ const MyCode = () => {
                                 <a href={repo.html_url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <span style={{ fontWeight: 'bold', fontSize: '1.4em', display: 'block', textDecoration: 'underline'}}>{repo.name}</span>
                                     <span style={{ fontSize: '1em', display: 'block' }}>{repo.description}</span>
+                                    <span style={{ fontSize: '.8em', display: 'block', marginTop: '5px' }}>
+                                        Languages: {repo.languages_url.join(', ')}
+                                    </span>
                                 </a>
                             </li>
                         ))}
