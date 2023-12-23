@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
+import './loggedInViews.css'
 
 type GitHubRepo = {
     id: number;
@@ -57,6 +58,7 @@ const MyCode = () => {
 
     return (
         <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+            <div className="moving-background"></div> 
              <div className='navbar-div'>
                 <NavBar title='My Code'/>
             </div>
@@ -67,7 +69,6 @@ const MyCode = () => {
                 alignItems: 'center', 
                 width: '100%',
                 minHeight: `${containerHeight}px`,
-                backgroundColor: '#343541',
             }}>
                 <div style={{ 
                     display: 'flex', 

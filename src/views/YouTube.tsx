@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from '../components/NavBar';
+import './loggedInViews.css'
 
 interface YouTubeVideo {
     id: {
@@ -69,6 +70,7 @@ const YouTube = () => {
 
     return (
         <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+            <div className="moving-background"></div> 
             <div className='navbar-div'> {/*This is 80px*/}
                 <NavBar title="Anding Analytics" /> 
             </div>
@@ -79,7 +81,7 @@ const YouTube = () => {
                 alignItems: 'center', 
                 width: '100%',
                 maxHeight: `${containerHeight}px`,
-                backgroundColor: '#343541',
+                // backgroundColor: '#343541',
             }}>
                 <div style={{ 
                     display: 'flex', 
