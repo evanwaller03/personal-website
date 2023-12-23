@@ -20,15 +20,6 @@ const MyCode = () => {
     const [containerHeight, setContainerHeight] = useState(window.innerHeight - 80);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const isMobile = windowWidth < 600;
-    const pageStyle: React.CSSProperties = {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        height: "100%", // This makes the inner container take up 100% of the parent's height
-        width: "100%",
-        paddingTop: '25px'
-    };
 
     const sectionStyle: React.CSSProperties  = {
         display: 'flex',
@@ -40,19 +31,36 @@ const MyCode = () => {
         marginBottom: '15px'
       };
     
-      const imageStyle: React.CSSProperties  = {
-        width: isMobile ? '95%' : '45%',
-        objectFit: 'cover', // This ensures that the images are sized properly without being stretched
-        marginBottom: isMobile ? '20px' : '0', // Add margin at the bottom on mobile
+      const imageStyle: React.CSSProperties = {
+        width: isMobile ? '100%' : '98%',
+        objectFit: 'cover',
+        marginBottom: '20px',
       };
     
-      const titleStyle: React.CSSProperties  = {
-        color: '#FFFFFF', // White letters as specified
+      const titleStyle: React.CSSProperties = {
+        color: '#FFFFFF',
         textAlign: 'center',
         width: '100%',
-        marginBottom: '20px', // Space between title and images
         fontSize: isMobile ? '1.5em' : '2em',
       };
+
+      const descriptionStyle: React.CSSProperties = {
+        color: '#FFFFFF',
+        textAlign: 'center',
+        width: '95%',
+        marginBottom: '20px',
+        fontSize: isMobile ? '1.3em' : '1.7em',
+      };
+
+      const imageContainerStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: isMobile ? '90%' : '100%',
+        
+      };
+    
 
     useEffect(() => {
         const handleResize = () => {
@@ -104,6 +112,7 @@ const MyCode = () => {
                     minHeight: `${containerHeight}px`,
                     overflowY: 'scroll',
                 }}>
+                    <h1 style={titleStyle}>Check out my <span style={{ color: '#22bcf3' }}>Github</span></h1>
                     <ul>
                         {repos.map(repo => (
                             <li key={repo.id} 
@@ -138,18 +147,35 @@ const MyCode = () => {
                             </li>
                         ))}
                     </ul>
-                    <h1 style={titleStyle}>My first app: <span style={{ color: '#22bcf3' }}>Galleon</span></h1>
-                    <div style={sectionStyle}>
-                        <img src="/galleon-login.jpeg" alt="Galleon Login Screen" style={imageStyle} />
-                        <img style={{marginLeft: isMobile ? '0px' : '10px', width: isMobile ? '95%' : '45%', objectFit: 'cover', marginBottom: isMobile ? '20px' : '0', }} src="/galleon-leaderboard.jpeg" alt="Galleon Leader Board" />
+                    <div className="soft-grey-line"></div> 
+                    <h1 style={titleStyle}>My first iOS & Android app: <span style={{ color: '#22bcf3', fontSize: '1.4em'}}>Galleon</span></h1>
+                    <div style={imageContainerStyle}>
+                        <div>
+                            <p style={descriptionStyle}>The Login Screen</p>
+                            <img src="/galleon-login.jpeg" alt="Galleon Login Screen" style={imageStyle} />
+                        </div>
+                        <div>
+                            <p style={descriptionStyle}>Social Leader Board</p>
+                            <img src="/galleon-leaderboard.jpeg" alt="Galleon Leader Board" style={imageStyle} />
+                        </div>
                     </div>
                     <h1 style={titleStyle}>We tested <span style={{ color: '#22bcf3' }}>multiple versions</span></h1>
+                    <div style={imageContainerStyle}>
+                        <div>
+                            <p style={descriptionStyle}>Home Page Variation</p>
+                            <img src="/galleon-home-1.jpeg" alt="Galleon Home Screen Variation 1" style={imageStyle} />
+                        </div>
+                        <div>
+                            <p style={descriptionStyle}>Version On Launch</p>
+                            <img src="/galleon-home-2.jpeg" alt="Galleon Home Screen Variation 2" style={imageStyle}/>
+                        </div>
+                    </div>
                     <div style={sectionStyle}>
-                        <img src="/galleon-home-1.jpeg" alt="Galleon Home Screen Variation 1" style={imageStyle} />
-                        <img style={{marginLeft: isMobile ? '0px' : '10px', width: isMobile ? '95%' : '45%', objectFit: 'cover', marginBottom: isMobile ? '20px' : '0', }} src="/galleon-home-2.jpeg" alt="Galleon Home Screen Variation 2" />
+                        
+                        
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     );
 };

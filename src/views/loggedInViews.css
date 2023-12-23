@@ -101,7 +101,9 @@
   pointer-events: none; /* Ignores pointer events */
 }
 
-/*
-  MyCode CSS Styles
-*/
-
+.soft-grey-line {
+  height: 1px;
+  background-color: #d1d1d1; /* soft grey color */
+  width: 100%; /* Line takes the full width of the container */
+  margin: 20px 0; /* Add some vertical space before and after the line */
+}
