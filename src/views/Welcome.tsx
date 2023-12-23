@@ -46,13 +46,14 @@ const Welcome = () => {
     };
 
     return (
-        <div className="moving-background" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', backgroundColor: '#343541'}}>
-            <div className='navbar-div'>
-                <NavBar title="Wally's World"/>
-            </div>
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
-                <h1 style={titleStyle}>Welcome to Wally's World</h1>
-                <div style={pageStyle}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+        <div className="moving-background"></div> {/* Separate div for moving background */}
+        <div className='navbar-div'>
+            <NavBar title="Wally's World"/>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
+            <h1 style={titleStyle}>Welcome to Wally's World</h1>
+            <div style={pageStyle}>
                     
                     <p>Welcome! Explore my blend of coding projects and personal interests. If you have any questions, feel free to ask <Link className='hover-underline' style={{ fontWeight: 'bold', fontSize: '1.2em', textDecoration: isMobile ? 'underline': '', display: 'inline'}} to="/wallergpt"> WallerGPT: my openAI fine-tuned chatbot</Link>. Happy exploring!</p>
                     

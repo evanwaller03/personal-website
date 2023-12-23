@@ -8,7 +8,9 @@ type GitHubRepo = {
     description: string;
     language: string;
     languages_url: string; // URL to fetch languages
+    languages: string[]; // Add this line
 };
+
 
 
 
@@ -103,9 +105,9 @@ const MyCode = () => {
                                 <a href={repo.html_url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <span style={{ fontWeight: 'bold', fontSize: '1.4em', display: 'block', textDecoration: 'underline'}}>{repo.name}</span>
                                     <span style={{ fontSize: '1em', display: 'block' }}>{repo.description}</span>
-                                    <span style={{ fontSize: '.8em', display: 'block', marginTop: '5px' }}>
-                                        Languages: {repo.languages_url.join(', ')}
-                                    </span>
+                                    {repo.languages && <span style={{ fontSize: '.8em', display: 'block', marginTop: '5px' }}>
+                                        Languages: {repo.languages.join(', ')}
+                                    </span>}
                                 </a>
                             </li>
                         ))}

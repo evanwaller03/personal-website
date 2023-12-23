@@ -98,6 +98,8 @@
   background-image: repeating-linear-gradient( rgba(52, 53, 65, 0.3),  rgba(52, 53, 65, 0.3) 50px, rgba(96, 97, 120, 0.3) 50px, rgba(96, 97, 120, 0.3) 100px); /* Creates larger and more translucent wavy lines */
   animation: moveWaves 45s linear infinite;
   z-index: -100; /* Ensures it stays in the background */
+  pointer-events: none; /* Ignores pointer events */
 }
+
 
 
