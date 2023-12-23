@@ -30,6 +30,30 @@ const MyCode = () => {
         paddingTop: '25px'
     };
 
+    const sectionStyle: React.CSSProperties  = {
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: isMobile ? '100%' : '100%',
+        margin: '0 auto', // Center the section
+        marginBottom: '15px'
+      };
+    
+      const imageStyle: React.CSSProperties  = {
+        width: isMobile ? '95%' : '45%',
+        objectFit: 'cover', // This ensures that the images are sized properly without being stretched
+        marginBottom: isMobile ? '20px' : '0', // Add margin at the bottom on mobile
+      };
+    
+      const titleStyle: React.CSSProperties  = {
+        color: '#FFFFFF', // White letters as specified
+        textAlign: 'center',
+        width: '100%',
+        marginBottom: '20px', // Space between title and images
+        fontSize: isMobile ? '1.5em' : '2em',
+      };
+
     useEffect(() => {
         const handleResize = () => {
             setContainerHeight(window.innerHeight - 80);
@@ -57,7 +81,7 @@ const MyCode = () => {
     }, []);
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', }}>
             <div className="moving-background"></div> 
              <div className='navbar-div'>
                 <NavBar title='My Code'/>
@@ -69,6 +93,7 @@ const MyCode = () => {
                 alignItems: 'center', 
                 width: '100%',
                 minHeight: `${containerHeight}px`,
+                overflowY: 'scroll',
             }}>
                 <div style={{ 
                     display: 'flex', 
@@ -113,6 +138,16 @@ const MyCode = () => {
                             </li>
                         ))}
                     </ul>
+                    <h1 style={titleStyle}>My first app: <span style={{ color: '#22bcf3' }}>Galleon</span></h1>
+                    <div style={sectionStyle}>
+                        <img src="/galleon-login.jpeg" alt="Galleon Login Screen" style={imageStyle} />
+                        <img style={{marginLeft: isMobile ? '0px' : '10px', width: isMobile ? '95%' : '45%', objectFit: 'cover', marginBottom: isMobile ? '20px' : '0', }} src="/galleon-leaderboard.jpeg" alt="Galleon Leader Board" />
+                    </div>
+                    <h1 style={titleStyle}>We tested <span style={{ color: '#22bcf3' }}>multiple versions</span></h1>
+                    <div style={sectionStyle}>
+                        <img src="/galleon-home-1.jpeg" alt="Galleon Home Screen Variation 1" style={imageStyle} />
+                        <img style={{marginLeft: isMobile ? '0px' : '10px', width: isMobile ? '95%' : '45%', objectFit: 'cover', marginBottom: isMobile ? '20px' : '0', }} src="/galleon-home-2.jpeg" alt="Galleon Home Screen Variation 2" />
+                    </div>
                 </div>
             </div>
         </div>
