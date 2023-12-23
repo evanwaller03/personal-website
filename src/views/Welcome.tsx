@@ -46,7 +46,7 @@ const Welcome = () => {
     };
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', backgroundColor: '#343541'}}>
+        <div className="moving-background" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', backgroundColor: '#343541'}}>
             <div className='navbar-div'>
                 <NavBar title="Wally's World"/>
             </div>
