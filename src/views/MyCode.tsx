@@ -159,6 +159,8 @@ const MyCode = () => {
                             <img src="/galleon-leaderboard.jpeg" alt="Galleon Leader Board" style={imageStyle} />
                         </div>
                     </div>
+                    <h1 style={{color: '#ffffff',textAlign: 'center',width: '100%',fontSize: isMobile ? '1.2em' : '1.8em',}}>This wouldn't have been possible without my friends:</h1>
+                    <h1 style={{color: '#22bcf3',textAlign: 'center',width: '100%',fontSize: isMobile ? '1.4em' : '2.2em',}}>Jack Munn & Rohan Hirani</h1>
                     <h1 style={titleStyle}>We tested <span style={{ color: '#22bcf3' }}>multiple versions</span></h1>
                     <div style={imageContainerStyle}>
                         <div>
@@ -170,10 +172,8 @@ const MyCode = () => {
                             <img src="/galleon-home-2.jpeg" alt="Galleon Home Screen Variation 2" style={imageStyle}/>
                         </div>
                     </div>
-                    <div style={sectionStyle}>
-                        
-                        
-                    </div>
+                    <h1 style={{color: '#ffffff',textAlign: 'center',width: '100%',fontSize: isMobile ? '1.2em' : '1.8em',}}>We start in October of 2021. 1.5 years later...</h1>
+                    <h1 style={{color: '#22bcf3',textAlign: 'center',width: '100%',fontSize: isMobile ? '1.4em' : '2.2em',}}>We launched in May 2023</h1>
                 </div>
             </div> 
         </div>
