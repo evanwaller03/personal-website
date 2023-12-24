@@ -79,7 +79,7 @@ const ChatInterface = () => {
         </button>
       </form>
 
-      <p style={{ fontSize: '12px' }}>Responses from OpenAI's API may be incorrect. Please reach out to me (Evan) if you have further questions!</p>
+      <p style={{ fontSize: '12px' }}>Responses from OpenAI's API may be incorrect. Please reach out to me (Evan) if you have further questions! Side note: chats do not build off one another, but dont worry.. I'm working on a better WallerGPT experience.</p>
 
     </div>
   );
