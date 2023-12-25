@@ -63,13 +63,13 @@ const YouTube = () => {
     
 
     const truncateTitle = (description: any) => {
-        const maxChar = isMobile ? 50 : 75; // Set your character limit
+        const maxChar = isMobile ? 50 : 150; // Set your character limit
         return description.length > maxChar ? description.substring(0, maxChar) + '...' : description;
     };
 
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'auto'}}>
             <div className="moving-background"></div> 
             <div className='navbar-div'> {/*This is 80px*/}
                 <NavBar title="Anding Analytics" /> 
@@ -82,13 +82,14 @@ const YouTube = () => {
                 width: '100%',
                 maxHeight: `${containerHeight}px`,
                 // backgroundColor: '#343541',
+                marginTop: '80px',
             }}>
                 <div style={{ 
                     display: 'flex', 
                     flexDirection: 'column', 
                     justifyContent: 'flex-start', 
                     alignItems: 'center', 
-                    width: isMobile ? '90%' : '50%',
+                    width: isMobile ? '95%' : '50%',
                     maxHeight: `${containerHeight}px`,
                     overflowY: 'scroll',
                 }}>
@@ -97,7 +98,7 @@ const YouTube = () => {
                            style={{ 
                                textDecoration: 'none', 
                                color: 'inherit', 
-                               width: '90%', 
+                               width: '95%', 
                                marginBottom: index === videos.length - 1 ? '0' : '20px' // Add margin to all but the last element
                            }} 
                            key={video.id.videoId}>

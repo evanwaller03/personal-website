@@ -92,7 +92,7 @@ const NavBar = ({ title } : any) => {
           <div onClick={() => handleNavigation('/resume')}>Resume</div>
           <div onClick={() => handleNavigation('/mycode')}>My Code</div>
           <div onClick={() => handleNavigation('/youtube')}>YouTube</div>
-          <div onClick={() => handleNavigation('/galaxyinvaders')}>Galaxy Invaders</div>
+          {/* <div onClick={() => handleNavigation('/galaxyinvaders')}>Galaxy Invaders</div> */}
           <div onClick={() => handleNavigation('/wallergpt')}>WallerGPT</div>
           {/* <div onClick={() => handleNavigation('/quotes')}>Quotes</div> */}
           <div onClick={() => handleNavigation('/interests')}>Interests</div>

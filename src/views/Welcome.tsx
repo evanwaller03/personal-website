@@ -30,6 +30,8 @@ const Welcome = () => {
         height: "fit-content",
         width: isMobile ? "90%" : "50%",
         paddingTop: '25px',
+        paddingLeft: '10px',
+        paddingRight: '10px',
         color: '#FFFFFF', // Assuming white text for readability
         textAlign: 'center',
         overflowY: 'scroll', // Always scrollable
@@ -46,24 +48,25 @@ const Welcome = () => {
     };
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden'}}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'auto', paddingBottom: '25px'}}>
         <div className="moving-background"></div> {/* Separate div for moving background */}
         <div className='navbar-div'>
             <NavBar title="Wally's World"/>
         </div>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%', marginTop: '80px', overflow: 'scroll'}}>
             <h1 style={titleStyle}>Welcome to Wally's World</h1>
             <div style={pageStyle}>
                     
-                    <p>Welcome! Explore my blend of coding projects and personal interests. If you have any questions, feel free to ask <Link className='hover-underline' style={{ fontWeight: 'bold', fontSize: '1.2em', textDecoration: isMobile ? 'underline': '', display: 'inline'}} to="/wallergpt"> WallerGPT: my openAI fine-tuned chatbot</Link>. Happy exploring!</p>
+                    <p>Welcome! My name is <span style={{color: '#22bcf3', fontSize: '1.3em'}}>Evan Waller</span> and this is my resume website. If you have any questions, feel free to ask <Link className='hover-underline' style={{ color: '#22bcf3', fontWeight: 'bold', fontSize: '1.3em', textDecoration: isMobile ? 'underline': '', display: 'inline'}} to="/wallergpt"> WallerGPT: my openAI fine-tuned chatbot</Link>. Happy exploring!</p>
+                    <Link className='hover-underline' style={{marginTop: '50px', marginBottom: '15px'}} to="/resume">📄 <strong style={{fontSize: isMobile ? '1.1em' : '1.8em', textDecoration: isMobile ? 'underline': ''}}>Resume:</strong> Education & Professional Work Experience</Link>
+                    <Link className='hover-underline' style={{marginBottom: '15px'}} to="/mycode">💻 <strong style={{fontSize: isMobile ? '1.1em' : '1.8em', textDecoration: isMobile ? 'underline': ''}}>My Code:</strong> What I Have Built</Link>
+                    <Link className='hover-underline' style={{marginBottom: '15px',}} to="/wallergpt">🤖 <strong style={{fontSize: isMobile ? '1.1em' : '1.8em', textDecoration: isMobile ? 'underline': ''}}>WallerGPT:</strong> My AI Clone (In Progress)</Link>
+                    <Link className='hover-underline' style={{marginBottom: '15px'}}to="/youtube">🚀 <strong style={{fontSize: isMobile ? '1.1em' : '1.8em', textDecoration: isMobile ? 'underline': ''}}>Anding Analytics - YouTube:</strong> My YouTube Channel</Link>
+                    {/* <Link className='hover-underline' style={{marginTop: '15px'}} to="/galaxyinvaders">🕹️ <strong style={{fontSize: isMobile ? '1.1em' : '1.8em', textDecoration: isMobile ? 'underline': ''}}>Galaxy Invaders:</strong> A Tribute To My First Python Creation</Link> */}
+                    <Link className='hover-underline' style={{marginBottom: '50px',}} to="/interests">🌌 <strong style={{fontSize: isMobile ? '1.1em' : '1.8em', textDecoration: isMobile ? 'underline': ''}}>Interests:</strong> What I Do For Fun</Link>
                     
-                    <Link className='hover-underline' style={{marginTop: '50px'}}to="/youtube">🚀 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>YouTube Channel - Anding Analytics:</strong> My YouTube Channel</Link>
-                    <Link className='hover-underline' style={{marginTop: '15px'}} to="/galaxyinvaders">🕹️ <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>Galaxy Invaders:</strong> A Tribute To My First Python Creation</Link>
-                    <Link className='hover-underline' style={{marginTop: '15px'}} to="/resume">📄 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>Resume:</strong> Education & Professional Work Experience</Link>
-                    <Link className='hover-underline' style={{marginTop: '15px', marginBottom: '15px'}} to="/interests">🌌 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>Interests:</strong> My Hobbies & Interests</Link>
-                    <Link className='hover-underline' style={{marginBottom: '50px'}} to="/mycode">💻 <strong style={{fontSize: isMobile ? '1.1em' : '1.4em', textDecoration: isMobile ? 'underline': ''}}>My Code:</strong> What I Have Built</Link>
                     
-                    <p style={{fontSize:'13px'}}>Disclaimer: I am still learning. Contact me if you have any cool ideas or would like to report a bug. Email: evanwaller03@gmail.com</p>
+                    <p style={{fontSize:'13px'}}>Disclaimer: The website will forever be a work in progress. Contact me if you have any cool ideas or would like to report a bug. Email: evanwaller03@gmail.com</p>
                 </div>
             </div>
         </div>

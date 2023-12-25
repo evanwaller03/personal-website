@@ -11,7 +11,7 @@ const WallerGPT = () => {
         alignItems: "center",
         height: "100%", // This makes the inner container take up 100% of the parent's height
         width: "100%",
-        paddingTop: '25px'
+        paddingTop: '80px'
     };
 
     return (

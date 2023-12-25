@@ -16,6 +16,9 @@
     align-items: center; /* Centers items vertically in the container */
     justify-content: center;
     padding: 0 0 0 0; /* Adds some padding on the sides */
+    z-index: 1003;
+    position: fixed;
+    top: 0;
 }
 
 .centered-content {
