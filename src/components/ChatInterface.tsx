@@ -54,7 +54,7 @@ const ChatInterface = () => {
   
 
   return (
-    <div style={{ width: isMobile ? '90%' : '35%', height: isMobile ? '70%' : '90%' }}>
+    <div style={{ width: isMobile ? '90%' : '35%', height: isMobile ? '80%' : '90%' }}>
 
       <div style={{ overflowY: 'scroll', height: '80%' }}>
         <p>WallerGPT: Please free to ask a question about Evan's resume, his personal interests, his coding projects, etc.</p>

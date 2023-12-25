@@ -69,7 +69,7 @@ const YouTube = () => {
 
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'auto'}}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh',}}>
             <div className="moving-background"></div> 
             <div className='navbar-div'> {/*This is 80px*/}
                 <NavBar title="Anding Analytics" /> 
