@@ -13,15 +13,15 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<UnderConstruction />} />
-        <Route path="/welcome" element={<Welcome />} />
+        {/* <Route path="/" element={<UnderConstruction />} /> */}
+        <Route path="/" element={<Welcome />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/mycode" element={<MyCode />} />
         <Route path="/youtube" element={<YouTube />}/>
-        <Route path="/galaxyinvaders" element={<GalaxyInvaders />} />
+        {/* <Route path="/galaxyinvaders" element={<GalaxyInvaders />} /> */}
         <Route path="/wallergpt" element={<WallerGPT />} />
-        <Route path="/quotes" element={<Quotes />} />
-        <Route path="/interests" element={<Interests />} />
+        {/* <Route path="/quotes" element={<Quotes />} />
+        <Route path="/interests" element={<Interests />} /> */}
       </Routes>
     </Router>
   );

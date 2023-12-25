@@ -58,7 +58,7 @@ const NavBar = ({ title } : any) => {
   };
 
   const navigateHome = () => {
-    navigate("/welcome");
+    navigate("/");
   };
 
   return (
@@ -88,14 +88,14 @@ const NavBar = ({ title } : any) => {
         <HiMenu style={{fontSize: '30'}}/>
         <div style={dropdownContent}>
           {/* Add navigation items here */}
-          <div onClick={() => handleNavigation('/welcome')}>Welcome</div>
+          <div onClick={() => handleNavigation('/')}>Welcome</div>
           <div onClick={() => handleNavigation('/resume')}>Resume</div>
           <div onClick={() => handleNavigation('/mycode')}>My Code</div>
           <div onClick={() => handleNavigation('/youtube')}>YouTube</div>
           {/* <div onClick={() => handleNavigation('/galaxyinvaders')}>Galaxy Invaders</div> */}
           <div onClick={() => handleNavigation('/wallergpt')}>WallerGPT</div>
           {/* <div onClick={() => handleNavigation('/quotes')}>Quotes</div> */}
-          <div onClick={() => handleNavigation('/interests')}>Interests</div>
+          {/* <div onClick={() => handleNavigation('/interests')}>Interests</div> */}
           {/* Add more navigation items as needed */}
         </div>
       </div>
