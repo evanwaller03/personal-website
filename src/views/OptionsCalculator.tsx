@@ -177,6 +177,8 @@ const OptionsCalculator = () => {
         textAlign: 'center',
         // ... other styles
         padding: '0px',
+        color: '#ffffff',
+
     };
     
     const inputStyle: CSSProperties = {
@@ -184,7 +186,8 @@ const OptionsCalculator = () => {
         // ... other styles
         padding: '0px',
         margin: '0px',
-        width:'fit-content'
+        width:'fit-content',
+        color: '#ffffff',
     };
 
 
@@ -192,7 +195,7 @@ const OptionsCalculator = () => {
         <div style={{ position: 'relative', width: '100vw', height: '100vh',}}>
             <div className="moving-background"></div> 
             <div className='navbar-div'> {/*This is 80px*/}
-                <NavBar title="Binomial Options Calculator" /> 
+                <NavBar title="Options Calculator" /> 
             </div>
             <div style={{ 
                 display: 'flex', 
@@ -213,7 +216,7 @@ const OptionsCalculator = () => {
                     maxHeight: `${containerHeight}px`,
                 }}>
                     <Line data={chartData} options={chartOptions}/>
-                    <button style={{marginTop: '20px'}} onClick={fetchPrices}>Calculate Prices</button>
+                    <button style={{marginTop: '20px', color: '#ffffff'}} onClick={fetchPrices}>Calculate Prices</button>
                     <div style={{ 
                         display: 'flex', 
                         flexDirection: 'row', 
