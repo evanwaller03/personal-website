@@ -172,22 +172,25 @@ const OptionsCalculator = () => {
     };
 
     const inputLabelStyle: CSSProperties = {
-        height: '44px', // use height to ensure exact height rather than min/max
+        height: '42px', // use height to ensure exact height rather than min/max
         lineHeight: '40px', // align text vertically
         textAlign: 'center',
         // ... other styles
         padding: '0px',
         color: '#ffffff',
-
+        marginBottom: '5px',
     };
     
     const inputStyle: CSSProperties = {
-        height: '40px', // use height to ensure exact height rather than min/max
-        // ... other styles
+        height: '40px',
         padding: '0px',
-        margin: '0px',
-        width:'fit-content',
-        color: '#ffffff',
+        marginBottom: '5px',
+        width: 'fit-content', // changed from fit-content to 100% to fill the container
+        color: '#ffffff', // text color white
+        backgroundColor: 'rgba(255, 255, 255, 0.2)', // translucent white background
+        border: '1px solid rgba(255, 255, 255, 0.5)', // optional: if you want borders to also be translucent
+        borderRadius: '4px',
+        // other styles...
     };
 
 

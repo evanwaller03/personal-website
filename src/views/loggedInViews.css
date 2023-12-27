@@ -110,3 +110,9 @@
   width: 100%; /* Line takes the full width of the container */
   margin: 20px 0; /* Add some vertical space before and after the line */
 }
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.3); /* slightly more opaque for focus */
+  outline: none; /* removes the default focus outline */
+  /* other focus styles... */
+}
