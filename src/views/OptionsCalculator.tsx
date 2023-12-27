@@ -104,8 +104,8 @@ const OptionsCalculator = () => {
                 raw_risk_free_rate: riskFreeRate,
                 maturity_date: maturityDate
             };
-            //const response = await axios.post('https://api.evanwaller.com/calculate_option_prices', postData);
-            const response = await axios.post('http://127.0.0.1:8000/calculate_option_prices', postData);
+            const response = await axios.post('https://api.evanwaller.com/calculate_option_prices', postData);
+            //const response = await axios.post('http://127.0.0.1:8000/calculate_option_prices', postData);
             setChartData({
                 labels: response.data.dates,  // Your array of labels (e.g., dates)
                 datasets: [
