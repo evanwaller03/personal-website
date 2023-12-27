@@ -8,6 +8,7 @@ import Resume from './views/Resume';
 import MyCode from './views/MyCode';
 import Quotes from './views/Quotes';
 import Interests from './views/Interests';
+import OptionsCalculator from './views/OptionsCalculator';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/youtube" element={<YouTube />}/>
         {/* <Route path="/galaxyinvaders" element={<GalaxyInvaders />} /> */}
         <Route path="/wallergpt" element={<WallerGPT />} />
+        <Route path="/optionscalculator" element={<OptionsCalculator />} />
         {/* <Route path="/quotes" element={<Quotes />} />
         <Route path="/interests" element={<Interests />} /> */}
       </Routes>

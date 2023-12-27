@@ -121,6 +121,7 @@ const NavBar = ({ title } : any) => {
           <div style={dropDownItem} onClick={() => handleNavigation('/youtube')}>YouTube</div>
           {/* <div onClick={() => handleNavigation('/galaxyinvaders')}>Galaxy Invaders</div> */}
           <div style={dropDownItem} onClick={() => handleNavigation('/wallergpt')}>WallerGPT</div>
+          <div style={dropDownItem} onClick={() => handleNavigation('/optionscalculator')}>Binomial Options Calculator</div>
           {/* <div onClick={() => handleNavigation('/quotes')}>Quotes</div> */}
           {/* <div onClick={() => handleNavigation('/interests')}>Interests</div> */}
         </div>
