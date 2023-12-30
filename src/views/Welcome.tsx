@@ -61,8 +61,8 @@ const Welcome = () => {
                         <ul style={{ listStyleType: 'none', padding: '0', textAlign: 'left' }}>
                             <li><strong>Name:</strong> Evan Waller</li>
                             <li><strong>Education:</strong> Gies College of Business, University of Illinois</li>
-                            <li><strong>Degree:</strong> Bachelor of Science in Finance</li>
-                            <li><strong>YouTube University:</strong> Computer Science since June 2021</li>
+                            <li><strong>Degree:</strong> Bachelor of Science in <span style={{ color: '#22bcf3' }}>Finance</span></li>
+                            <li><strong>YouTube University:</strong> <span style={{ color: '#22bcf3' }}>Computer Science</span> since June 2021</li>
                         </ul>
                         <strong>Questions?</strong> Ask <Link className='hover-underline' style={{ fontWeight: 'bold', textDecoration: isMobile ? 'underline': '', display: 'inline' }} to="/wallergpt">WallerGPT: my openAI fine-tuned chatbot</Link>
                     </div>
