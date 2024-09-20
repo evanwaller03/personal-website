@@ -26,3 +26,8 @@ dist-ssr
 
 # Environment Variables
 .env
+backend/.env
+backend/__pycache__/
+backend/wallergpt_old.py
+backend/venv
+backend/embeddings.pkl

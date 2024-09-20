@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "fact": "Evan Waller graduated in May of 2023. He studied finance in the Gies College of Business at the University of Illinois Urbana-Champaign.",
+      "category": "College",
+      "tags": ["education", "finance", "Gies College of Business", "University of Illinois Urbana-Champaign", "graduation", "May 2023"]
+    },
+    {
+      "id": 2,
+      "fact": "Evan Waller is a self-taught programmer who learned Python through textbooks and YouTube.",
+      "category": "Coding",
+      "tags": ["programming", "self-taught", "Python", "learning", "education"]
+    },
+    {
+      "id": 3,
+      "fact": "He is proficient in Python, SQL, and Java, and enjoys exploring various programming languages and techniques.",
+      "category": "Coding",
+      "tags": ["proficient", "Python", "SQL", "Java", "programming languages", "software development", "learning"]
+    },
+    {
+      "id": 4,
+      "fact": "Galleon was a mobile app Evan co-founded with Jack Munn and Rohan Hirani. It helped users discover local hidden attractions and was built using Appgyver and Xano. They spent nearly two years working together and successfully had over 800 downloads. It was deployed on the iOS and Android app stores.",
+      "category": "Startups",
+      "tags": ["entrepreneurship", "Galleon", "mobile app", "co-founder", "Appgyver", "Xano", "low-code", "app deployment", "iOS", "Android", "downloads", "startup", "collaboration"]
+    },
+    {
+      "id": 5,
+      "fact": "Evan Waller coded Galleon using Appgyver and Xano. These are low code platforms that helped to expedite his full-stack learning process. This is where he discovered a true passion for computer science.",
+      "category": "Startups",
+      "tags": ["coding", "Appgyver", "Xano", "low-code", "full-stack", "learning", "computer science", "passion"]
+    },
+    {
+      "id": 6,
+      "fact": "Evan Waller has completed internships at Lake Forest Casket as a \"Casket Technician,\" Vermillion Financial Advisors, where he gained insights into personal finance and retirement planning, and KPMG within their Business Valuations group.",
+      "category": "Internships",
+      "tags": ["internships", "Lake Forest Casket", "Casket Technician", "Vermillion Financial Advisors", "personal finance", "retirement planning", "KPMG", "Business Valuations"]
+    },
+    {
+      "id": 7,
+      "fact": "Evan Waller began his career at KPMG in July 2023, initially joining the Business Valuation group.",
+      "category": "Work",
+      "tags": ["professional experience", "KPMG", "Business Valuation", "July 2023", "career start"]
+    },
+    {
+      "id": 8,
+      "fact": "Evan Waller currently works in the Economic Services department at KPMG as a consultant and aspires to become a senior associate within the year.",
+      "category": "Work",
+      "tags": ["professional experience", "Economic Services", "consultant", "career development", "aspiration", "senior associate"]
+    },
+    {
+      "id": 9,
+      "fact": "Evan Waller exercises frequently, with a focus on running and weightlifting. Evan ran the 2024 Colfax Marathon in Denver",
+      "category": "Facts",
+      "tags": ["personal interests", "exercise", "running", "weightlifting", "health"]
+    },
+    {
+      "id": 10,
+      "fact": "Evan Waller is great at the video game Fortnite and enjoys playing Brawl Stars with his brother and close friends.",
+      "category": "Facts",
+      "tags": ["personal interests", "video games", "Fortnite", "Brawl Stars", "social activities", "family"]
+    },
+    {
+      "id": 11,
+      "fact": "Evan Waller's favorite book is Unbroken, which he finds to be one of the most inspiring stories of resilience.",
+      "category": "Facts",
+      "tags": ["personal interests", "favorite book", "Unbroken", "resilience", "reading"]
+    },
+    {
+      "id": 12,
+      "fact": "Evan Waller's favorite vacation destinations are Wisconsin and Florida, where he enjoys spending time with family.",
+      "category": "Facts",
+      "tags": ["personal interests", "vacation", "Wisconsin", "Florida", "family", "travel"]
+    },
+    {
+      "id": 13,
+      "fact": "Evan Waller is fascinated by artificial intelligence and aims to grow within the industry in any capacity possible.",
+      "category": "Aspirations",
+      "tags": ["career goals", "artificial intelligence", "AI industry", "growth", "fascination"]
+    },
+    {
+      "id": 14,
+      "fact": "Evan Waller wants to see Banff Canada someday because it is absolutely gorgeous and he likes nature.",
+      "category": "Aspirations",
+      "tags": ["travel goals", "Banff", "Canada", "nature", "travel aspirations"]
+    },
+    {
+      "id": 15,
+      "fact": "This is WallerGPT, an AI-powered chatbot developed by Evan Waller to provide accurate and detailed answers about his professional and personal background.",
+      "category": "WallerGPT",
+      "tags": ["chatbot", "AI-powered", "WallerGPT", "personal assistant", "professional background", "personal background"]
+    }
+  ]
