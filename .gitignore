@@ -29,5 +29,5 @@ dist-ssr
 backend/.env
 backend/__pycache__/
 backend/wallergpt_old.py
-backend/venv
+venv
 backend/embeddings.pkl
