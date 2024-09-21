@@ -1,15 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from .wallergpt import semantic_search, generate_response, df
+from wallergpt import semantic_search, generate_response, df
 import pandas as pd
+
+import sys
+print(sys.path)
 
 app = FastAPI()
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React dev server runs on port 3000
+    allow_origins=["*"],  # React dev server runs on port 3000
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

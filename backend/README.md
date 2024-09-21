@@ -34,6 +34,9 @@ Upload to git
 Start local server:
 uvicorn main:app --reload
 
+Start Virtual Environment
+source venv/bin/activate
+
 Frontend details to remember:
 Inside that directory, you can run several commands:
 

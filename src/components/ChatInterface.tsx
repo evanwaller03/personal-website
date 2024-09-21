@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaArrowUp } from "react-icons/fa6";
+import axios from 'axios';
 
 interface Message {
   type: 'User' | 'WallerGPT';
@@ -11,6 +12,10 @@ const ChatInterface = () => {
   const [conversation, setConversation] = useState<Message[]>([]);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const isMobile = windowWidth < 600;
+  const [loading, setLoading] = useState<boolean>(false);
+
+  // Use an environment variable for the API URL
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
@@ -27,60 +32,83 @@ const ChatInterface = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const userMessage: Message = { type: 'User', text: question }; // Explicitly defining the type here
-    const newConversation = [...conversation, userMessage];
-    setConversation(newConversation);
+
+    if (!question.trim()) return;
+
+    const userMessage: Message = { type: 'User', text: question };
+    setConversation(prev => [...prev, userMessage]);
     setQuestion('');
-  
+    setLoading(true);
+
     try {
-      const data = { prompt: question };
-      const response = await fetch('https://api.evanwaller.com/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+      const response = await axios.post(`${apiUrl}/query/`, {
+        question: userMessage.text,
       });
-  
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-  
-      const jsonResponse = await response.json();
-      setConversation(convo => [...convo, { type: 'WallerGPT', text: jsonResponse.response || "Error: " + jsonResponse.error }]);
+
+      setConversation(prev => [...prev, { type: 'WallerGPT', text: response.data.answer }]);
     } catch (error) {
-      console.error("Error fetching the response: ", error);
-      setConversation(convo => [...convo, { type: 'WallerGPT', text: "Failed to get the response." }]);
+      console.error('Error fetching the answer:', error);
+      const errorMessage =
+        axios.isAxiosError(error) && error.response?.data?.detail
+          ? error.response.data.detail
+          : 'An error occurred while fetching the answer.';
+      setConversation(prev => [...prev, { type: 'WallerGPT', text: errorMessage }]);
+    } finally {
+      setLoading(false);
     }
   };
-  
 
   return (
     <div style={{ width: isMobile ? '90%' : '35%', height: isMobile ? '80%' : '90%' }}>
-
       <div style={{ overflowY: 'scroll', height: '80%' }}>
-        <p>WallerGPT: Please free to ask a question about Evan's resume, his personal interests, his coding projects, etc.</p>
-        <div className="soft-grey-line"></div> 
+        <p>WallerGPT: Please feel free to ask a question about Evan's resume, his personal interests, his coding projects, etc.</p>
+        <div className="soft-grey-line"></div>
         {conversation.map((msg, index) => (
-          <div key={index} style={{ color: msg.type === 'User' ? '#ceced8' : '#ffffff', marginBottom: '15px'}}>
-            <strong style={{fontSize:"1.1em"}}>{msg.type}:</strong> {msg.text}
+          <div key={index} style={{ color: msg.type === 'User' ? '#ceced8' : '#ffffff', marginBottom: '15px' }}>
+            <strong style={{ fontSize: "1.1em" }}>{msg.type}:</strong> {msg.text}
           </div>
         ))}
       </div>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "row", width: '100%', height: '30px', padding: '0px' }}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
+          width: '100%',
+          height: '30px',
+          padding: '0px',
+        }}
+      >
         <input
           style={{ height: "100%", width: '90%' }}
           type="text"
           value={question}
           onChange={handleQuestionChange}
           placeholder="Enter your question about Evan..."
+          disabled={loading}
         />
-        <button type="submit" style={{ backgroundColor: '#ffffff', width: '9%', color: '#343541', marginLeft: '1%', padding: '0px', height: '100%' }}>
-          <FaArrowUp style={{ fontSize: '23px' }} />
+        <button
+          type="submit"
+          style={{
+            backgroundColor: '#ffffff',
+            width: '9%',
+            color: '#343541',
+            marginLeft: '1%',
+            padding: '0px',
+            height: '100%',
+          }}
+          disabled={loading}
+        >
+          {loading ? '...' : <FaArrowUp style={{ fontSize: '23px' }} />}
         </button>
       </form>
 
-      <p style={{ fontSize: '12px' }}>Responses from OpenAI may be incorrect. Please reach out to Evan if you have questions! Note: chats don't build off eachother. I'm working that.</p>
-
+      <p style={{ fontSize: '12px' }}>
+        Responses from OpenAI may be incorrect. Please reach out to Evan if you have questions! Note: chats don't build off each other. I'm working on that.
+      </p>
     </div>
   );
 };
