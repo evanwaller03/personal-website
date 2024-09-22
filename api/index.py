@@ -8,11 +8,12 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://evanwaller.com", "http://localhost:5173"],
+    allow_origins=["https://evanwaller.com", "https://www.evanwaller.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 class QueryRequest(BaseModel):
     question: str
