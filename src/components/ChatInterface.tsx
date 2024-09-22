@@ -39,7 +39,7 @@ const ChatInterface = () => {
     setConversation(prev => [...prev, userMessage]);
     setQuestion('');
     setLoading(true);
-
+    console.log('API URL:', apiUrl);
     try {
       const response = await axios.post(`${apiUrl}/query/`, {
         question: userMessage.text,
