@@ -1,43 +1,41 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 from wallergpt import semantic_search, generate_response, df
-import pandas as pd
-
-import sys
-print(sys.path)
 
 app = FastAPI()
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # React dev server runs on port 3000
+    allow_origins=["https://evanwaller.com", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Define a request model
 class QueryRequest(BaseModel):
     question: str
 
-# Endpoint to handle queries
 @app.post("/query/")
-async def handle_query(request: QueryRequest):
-    question = request.question
+async def handle_query(request: Request):
+    body = await request.json()
+    question = body.get('question')
 
-    # Perform semantic search to get relevant facts
+    if not question:
+        return JSONResponse({"detail": "Question not provided."}, status_code=400)
+
+    # Perform semantic search and generate response
     try:
         results = semantic_search(question, df)
         context_facts = "\n".join(results['fact'].tolist())
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-    # Generate response
-    try:
         answer = generate_response(question, context_facts)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        return JSONResponse({"detail": str(e)}, status_code=500)
 
     return {"answer": answer}
+
+# Add the handler for Vercel
+from mangum import Mangum
+
+handler = Mangum(app)
