@@ -2,18 +2,17 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from wallergpt import semantic_search, generate_response, df
+from api.wallergpt import semantic_search, generate_response, df
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://evanwaller.com", "https://www.evanwaller.com"],
+    allow_origins=["https://evanwaller.com", "https://www.evanwaller.com", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 class QueryRequest(BaseModel):
     question: str
