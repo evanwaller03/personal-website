@@ -19,6 +19,7 @@ class QueryRequest(BaseModel):
 
 @app.post("/query/")
 async def handle_query(request: Request):
+    print("Received request:", request)
     body = await request.json()
     question = body.get('question')
 
