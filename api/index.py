@@ -8,8 +8,6 @@ from mangum import Mangum
 
 app = FastAPI()
 
-handler = Mangum(app)
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://evanwaller.com", "https://www.evanwaller.com", "http://localhost:5173"],
@@ -40,4 +38,4 @@ async def handle_query(request: Request):
 
     return {"answer": answer}
 
-
+handler = Mangum(app)
