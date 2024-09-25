@@ -3,8 +3,12 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from api.wallygpt import semantic_search, generate_response, df
+# Add the handler for Vercel
+from mangum import Mangum
 
 app = FastAPI()
+
+handler = Mangum(app)
 
 app.add_middleware(
     CORSMiddleware,
@@ -36,7 +40,4 @@ async def handle_query(request: Request):
 
     return {"answer": answer}
 
-# Add the handler for Vercel
-from mangum import Mangum
 
-handler = Mangum(app)

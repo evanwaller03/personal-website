@@ -14,7 +14,8 @@ client = OpenAI(
 )
 
 # Load the DataFrame with precomputed embeddings
-df = pd.read_pickle('api/embeddings.pkl')
+embeddings_path = os.path.join(os.path.dirname(__file__), 'embeddings.pkl')
+df = pd.read_pickle(embeddings_path)
 
 # Function to get embeddings for the user's query
 def get_embedding(text, model="text-embedding-ada-002"):
