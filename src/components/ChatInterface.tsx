@@ -15,7 +15,9 @@ const ChatInterface = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   // Use an environment variable for the API URL
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  //const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const apiUrl = 'http://evanwaller.com';
+  
 
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);

@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from api.wallergpt import semantic_search, generate_response, df
+from wallergpt import semantic_search, generate_response, df
 
 app = FastAPI()
 
